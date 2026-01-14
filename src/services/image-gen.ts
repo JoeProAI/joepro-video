@@ -21,7 +21,7 @@ export class ImageService {
       quality: 'high',
     });
 
-    const imageUrl = response.data[0]?.url;
+    const imageUrl = response.data?.[0]?.url;
     if (!imageUrl) throw new Error('Failed to generate image');
 
     // Upload to freeimage.host for Luma compatibility
@@ -44,7 +44,7 @@ export class ImageService {
       quality: 'high',
     });
 
-    const imageUrl = response.data[0]?.url;
+    const imageUrl = response.data?.[0]?.url;
     if (!imageUrl) throw new Error('Failed to generate continuation frame');
 
     const hostedUrl = await this.uploadToImageHost(imageUrl);
